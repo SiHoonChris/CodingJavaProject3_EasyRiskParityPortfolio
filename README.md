@@ -1,7 +1,7 @@
 # CodingJavaProject3_EasyRiskParityPortfolio (22.11.16 ~ )  
 <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> &nbsp; <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">  
 
-사진
+
 
 ### 목차
 개발 동기 - 설계 - 후기 - 개선 사항 - 참고
@@ -24,8 +24,20 @@
 1) 종목 정보 입력
 2) 포트폴리오에 담을 종목들을 선택하면 자동으로 관련 수리적 결과값 및 투자비중 계산
 
-- 쿼리문
-사용된 쿼리문과 해석
+- 스키마 & 테이블 
+![SQL_TABLE_ARCH](https://user-images.githubusercontent.com/109140000/202844108-d8b1074f-42ef-4238-b019-36952de3e53d.png)  
+TABLE : assets  
+&nbsp;&nbsp; ![assets](https://user-images.githubusercontent.com/109140000/202844471-ffc24527-1800-441d-b6b6-8381b570fbf2.png)  
+TABLE : yield  
+&nbsp;&nbsp; ![yield](https://user-images.githubusercontent.com/109140000/202844478-7eebd7f6-ce2c-41a8-9bcd-739e37295d2b.png)  
+TABLE : yield_rate  
+&nbsp;&nbsp; ![yield_rate](https://user-images.githubusercontent.com/109140000/202844483-0cb17663-6c63-442b-af25-d89b35e828a6.png)  
+TABLE : stats  
+&nbsp;&nbsp; ![stats](https://user-images.githubusercontent.com/109140000/202844492-ed7eaf79-b779-4eec-bd81-59aceb30710e.png)  
+TABLE : portfolio  
+&nbsp;&nbsp; ![portfolio](https://user-images.githubusercontent.com/109140000/202844497-2934e528-eab6-460c-9bd1-ef44d8a15886.png)  
+
+- 사용된 쿼리문과 설명
 
 - 프로젝트 진행 간 중점 사항  
 이 프로그램의 내용은 엑셀로도 충분히 구현 가능하다. 그렇기에 엑셀 대신에 이 프로그램을 쓰는 것이 훨씬 더 효율적이라는 것이 확연히 드러나야 된다.
@@ -43,6 +55,7 @@
 - EasyRiskParityPortfolio
 1) 수익률이 음의 값을 가질 수 있다. 또한 표준편차에 따른 투자비중이 음의 값이 나올 수도 있다. 이런 경우 계산이 비정상적으로 이뤄지게 된다.
 즉 음의 값이나, 지나치게 과도한 값이 나왔을 경우 처리할 수 있어야 한다.
+2) 배당수익률 정보도 추가되면 좋을 것 같다
 
 - SiHoonChris
 적어도 SQL을 사용할 때는 Java 다룰 때와는 달라야 한다. 초기에 내가 Java로 프로그래밍 할 때처럼, '구체적인 설계나 계획 없이 일단 하고 보자'는 식의 방식은
