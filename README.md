@@ -1,5 +1,5 @@
-# CodingJavaProject3_EasyRiskParityPortfolio (22.11.xx ~ )  
-<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">  
+# CodingJavaProject3_EasyRiskParityPortfolio (22.11.16 ~ )  
+<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> &nbsp; <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">  
 
 사진
 
@@ -56,4 +56,5 @@ SQL에서는 높은 확률로 통하지 않는다. - 물론 SQL뿐만 아니라 
 
 - 이전 Repository : JavaStudy
 - JavaStudy 내의 Commit 기록들  
+(11-16-2022)&nbsp;&nbsp;https://github.com/SiHoonChris/JavaStudy/commit/cb2291d256063c27d5291279a469810ecc233c1f
 
