@@ -37,7 +37,20 @@ TABLE : stats
 TABLE : portfolio  
 &nbsp;&nbsp; ![portfolio](https://user-images.githubusercontent.com/109140000/202844497-2934e528-eab6-460c-9bd1-ef44d8a15886.png)  
 
-- 사용된 쿼리문과 설명
+- 사용된 쿼리문과 설명  
+1) 표준편차 ( STDEV )  
+SELECT   FORMAT( STDDEV_POP( ticker ) , 4 )   FROM   yield_rate   WHERE  ticker="ticker" ;  
+(* 모표준편차(population standard deviation) 사용)  
+2) 평균 수익률 ( AVG_Annual_Return )  
+SELECT   (   
+(  SELECT  EXP( AVG( LN( ticker ) ) )  FROM  yield_rate  WHERE  year<( SELECT  MAX(year)  FROM  yield_rate )  ) * ( ( COUNT(ticker) - 1 ) / COUNT(ticker) )  ) +  
+(  SELECT  ticker  FROM  yield_rate  WHERE  year>=ALL(SELECT year FROM yield_rate) ) * ( 1 / COUNT( ticker )  )  
+)  
+FROM   yield_rate;  
+(* 가장 최근 연도의 데이터 값을 따로 분리하여 계산하는 이유는, 해당 값이 고정되어 있지 않아 변동적이기 때문이다. 즉, 완전히 배제하지는 않으면서, 값의 변동에 따른 영향을 최소화하기 위함이다. )  
+3) 조정 평균 수익률 ( Adjusted_AVGAR )  
+SELECT   ( ((AVG_Annual_Return-1)*100) * (1-STDEV) )/100+1   FROM   stats   WHERE ticker="ticker" ;  
+( * 평균 수익률에서 표준편차(오차) 만큼의 값을 감하여 그 수치를 보수적으로 조정 )  
 
 - 프로젝트 진행 간 중점 사항  
 이 프로그램의 내용은 엑셀로도 충분히 구현 가능하다. 그렇기에 엑셀 대신에 이 프로그램을 쓰는 것이 훨씬 더 효율적이라는 것이 확연히 드러나야 된다.
